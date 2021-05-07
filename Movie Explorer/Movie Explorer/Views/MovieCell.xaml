@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms" 
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:local="clr-namespace:Movie_Explorer.ViewModels"
+      xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+      xmlns:tmdb="clr-namespace:TMDbLib.Objects.Search;assembly=TMDbLib"
+      x:Class="Movie_Explorer.Views.MovieCell" 
+      Padding="10" x:DataType="tmdb:SearchMovie" ColumnDefinitions="*, *" RowDefinitions="Auto,Auto, Auto, Auto">
+    <Image Grid.RowSpan="3" Aspect="Fill"
+                 Source="{Binding Path=BackdropPath, StringFormat='https://image.tmdb.org/t/p/w500{0}'}"/>
+    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Title}"
+                 FontAttributes="Bold" Style="{DynamicResource TitleStyle}" />
+    <xct:Shield Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" Status="{Binding VoteCount}" 
+                      Subject="{Binding VoteAverage}" StatusTextColor="Black"></xct:Shield>
+    <Label Grid.Row="2" Grid.Column="1" Text="{Binding ReleaseDate, StringFormat='Release Date: {0:dd-MM-yyyy}'}" FontSize="16" VerticalOptions="CenterAndExpand"
+                 VerticalTextAlignment="End"></Label>
+    <Label Grid.Row="3" Grid.ColumnSpan="2"
+                 Text="{Binding Overview}" Style="{DynamicResource SubtitleStyle}" VerticalOptions="End" />
+    <Grid.GestureRecognizers>
+        <TapGestureRecognizer 
+                  NumberOfTapsRequired="1"
+                  Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
+                  CommandParameter="{Binding .}">
+        </TapGestureRecognizer>
+    </Grid.GestureRecognizers>
+</Grid>
