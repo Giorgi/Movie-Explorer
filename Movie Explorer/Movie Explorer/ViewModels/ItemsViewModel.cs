@@ -13,22 +13,24 @@ namespace Movie_Explorer.ViewModels
     {
         private SearchMovie _selectedItem;
 
-        public ObservableCollection<Item> Items { get; }
         public ObservableCollection<SearchMovie> PopularMovies { get; }
+        public ObservableCollection<SearchMovie> DiscoverMovies { get; }
 
         public Command LoadItemsCommand { get; }
-        public Command AddItemCommand { get; }
+        public Command SearchMoviesCommand { get; }
+        
         public Command<SearchMovie> ItemTapped { get; }
 
         public ItemsViewModel()
         {
             Title = "Movies";
             PopularMovies = new ObservableCollection<SearchMovie>();
+            DiscoverMovies = new ObservableCollection<SearchMovie>();
+            
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            SearchMoviesCommand = new Command<string>(async text => await ExecuteSearchMoviesCommand(text));
 
             ItemTapped = new Command<SearchMovie>(OnItemSelected);
-
-            AddItemCommand = new Command(OnAddItem);
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -43,6 +45,34 @@ namespace Movie_Explorer.ViewModels
                 foreach (var movie in popularMovies)
                 {
                     PopularMovies.Add(movie);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        async Task ExecuteSearchMoviesCommand(string text)
+        {
+            IsBusy = true;
+
+            try
+            {
+                DiscoverMovies.Clear();
+                
+                if (!string.IsNullOrEmpty(text))
+                {
+                    var searchResult = await MoviesService.DiscoverMovies(text);
+
+                    foreach (var movie in searchResult)
+                    {
+                        DiscoverMovies.Add(movie);
+                    }
                 }
             }
             catch (Exception ex)
@@ -70,12 +100,7 @@ namespace Movie_Explorer.ViewModels
                 OnItemSelected(value);
             }
         }
-
-        private async void OnAddItem(object obj)
-        {
-            await Shell.Current.GoToAsync(nameof(NewItemPage));
-        }
-
+        
         async void OnItemSelected(SearchMovie item)
         {
             if (item == null)

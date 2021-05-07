@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using TMDbLib.Client;
 using TMDbLib.Objects.Search;
@@ -15,6 +16,22 @@ namespace Movie_Explorer.Services
             var trendingMoviesAsync = await client.GetTrendingMoviesAsync(TimeWindow.Week);
 
             return trendingMoviesAsync.Results;
+        }
+
+        public async Task<List<SearchMovie>> DiscoverMovies(string searchText)
+        {
+            var keywordAsync = await client.SearchKeywordAsync(searchText);
+
+            if (keywordAsync.Results.Any())
+            {
+                var movies = await client.DiscoverMoviesAsync()
+                                         .IncludeWithAnyOfKeywords(keywordAsync.Results.Select(keyword => keyword.Id))
+                                         .Query();
+
+                return movies.Results;
+            }
+
+            return new List<SearchMovie>();
         }
     }
 }

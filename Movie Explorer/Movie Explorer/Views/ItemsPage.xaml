@@ -27,9 +27,28 @@
             </RefreshView>
         </xct:TabViewItem>
         <xct:TabViewItem Icon="movie.png" Text="Discover" TextColor="White" TextColorSelected="Yellow" FontSize="12">
-            <Grid>
-                <Label HorizontalOptions="Center" VerticalOptions="Center" Text="TabContent2" />
-            </Grid>
+            <StackLayout Orientation="Vertical">
+                <SearchBar x:Name="SearchBar" Placeholder="Discover Movies"
+                           SearchCommand="{Binding SearchMoviesCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}">
+                    <SearchBar.Behaviors>
+                        <xct:UserStoppedTypingBehavior 
+                            Command="{Binding SearchMoviesCommand}" CommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
+                            StoppedTypingTimeThreshold="500" MinimumLengthThreshold="3"
+                            ShouldDismissKeyboardAutomatically="True" />
+                        <xct:EventToCommandBehavior EventName="TextChanged"
+                            Command="{Binding SearchMoviesCommand}" CommandParameter="" />
+                    </SearchBar.Behaviors>
+                </SearchBar>
+                <RefreshView x:DataType="local:ItemsViewModel" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                    <CollectionView x:Name="SearchMoviesView" ItemsSource="{Binding DiscoverMovies}" SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <views:MovieCell />
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </RefreshView>
+            </StackLayout>
         </xct:TabViewItem>
     </xct:TabView>
 </ContentPage>
