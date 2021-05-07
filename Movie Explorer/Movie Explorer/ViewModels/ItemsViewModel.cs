@@ -4,26 +4,29 @@ using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using TMDbLib.Objects.Search;
 using Xamarin.Forms;
 
 namespace Movie_Explorer.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        private Item _selectedItem;
+        private SearchMovie _selectedItem;
 
         public ObservableCollection<Item> Items { get; }
+        public ObservableCollection<SearchMovie> PopularMovies { get; }
+
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
-        public Command<Item> ItemTapped { get; }
+        public Command<SearchMovie> ItemTapped { get; }
 
         public ItemsViewModel()
         {
-            Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Title = "Movies";
+            PopularMovies = new ObservableCollection<SearchMovie>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            ItemTapped = new Command<Item>(OnItemSelected);
+            ItemTapped = new Command<SearchMovie>(OnItemSelected);
 
             AddItemCommand = new Command(OnAddItem);
         }
@@ -34,11 +37,12 @@ namespace Movie_Explorer.ViewModels
 
             try
             {
-                Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+                PopularMovies.Clear();
+                var popularMovies = await MoviesService.GetPopularMovies();
+                
+                foreach (var movie in popularMovies)
                 {
-                    Items.Add(item);
+                    PopularMovies.Add(movie);
                 }
             }
             catch (Exception ex)
@@ -57,7 +61,7 @@ namespace Movie_Explorer.ViewModels
             SelectedItem = null;
         }
 
-        public Item SelectedItem
+        public SearchMovie SelectedItem
         {
             get => _selectedItem;
             set
@@ -72,7 +76,7 @@ namespace Movie_Explorer.ViewModels
             await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
 
-        async void OnItemSelected(Item item)
+        async void OnItemSelected(SearchMovie item)
         {
             if (item == null)
                 return;

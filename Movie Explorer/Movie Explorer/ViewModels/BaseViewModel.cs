@@ -11,6 +11,7 @@ namespace Movie_Explorer.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        protected IMoviesService MoviesService => DependencyService.Get<IMoviesService>();
 
         bool isBusy = false;
         public bool IsBusy

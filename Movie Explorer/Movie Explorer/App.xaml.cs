@@ -14,6 +14,7 @@ namespace Movie_Explorer
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<TmdbMovieService>();
             MainPage = new AppShell();
         }
 
