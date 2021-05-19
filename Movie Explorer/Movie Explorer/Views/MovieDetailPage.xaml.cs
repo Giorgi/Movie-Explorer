@@ -9,7 +9,7 @@ namespace Movie_Explorer.Views
         public ItemDetailPage()
         {
             InitializeComponent();
-            BindingContext = new ItemDetailViewModel();
+            BindingContext = new MovieDetailViewModel();
         }
     }
 }

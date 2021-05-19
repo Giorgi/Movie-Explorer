@@ -107,7 +107,7 @@ namespace Movie_Explorer.ViewModels
                 return;
 
             // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
+            await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(MovieDetailViewModel.ItemId)}={item.Id}");
         }
     }
 }
