@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             x:Class="Movie_Explorer.Views.ItemsPage"
+             x:Class="Movie_Explorer.Views.MoviesPage"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:Movie_Explorer.ViewModels"  
              xmlns:views="clr-namespace:Movie_Explorer.Views"
@@ -16,7 +16,7 @@
                  TabIndicatorColor="Yellow" TabContentBackgroundColor="Gray">
 
         <xct:TabViewItem Icon="cinema.png" Text="Popular" TextColor="White" TextColorSelected="Yellow" FontSize="12">
-            <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <RefreshView x:DataType="local:MoviesViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
                 <CollectionView x:Name="PopularMoviesView" ItemsSource="{Binding PopularMovies}" SelectionMode="None">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
@@ -39,7 +39,7 @@
                             Command="{Binding SearchMoviesCommand}" CommandParameter="" />
                     </SearchBar.Behaviors>
                 </SearchBar>
-                <RefreshView x:DataType="local:ItemsViewModel" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                <RefreshView x:DataType="local:MoviesViewModel" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
                     <CollectionView x:Name="SearchMoviesView" ItemsSource="{Binding DiscoverMovies}" SelectionMode="None">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>

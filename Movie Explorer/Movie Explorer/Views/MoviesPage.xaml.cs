@@ -12,15 +12,15 @@ using Xamarin.Forms.Xaml;
 
 namespace Movie_Explorer.Views
 {
-    public partial class ItemsPage : ContentPage
+    public partial class MoviesPage : ContentPage
     {
-        ItemsViewModel _viewModel;
+        MoviesViewModel _viewModel;
 
-        public ItemsPage()
+        public MoviesPage()
         {
             InitializeComponent();
 
-            BindingContext = _viewModel = new ItemsViewModel();
+            BindingContext = _viewModel = new MoviesViewModel();
         }
 
         protected override void OnAppearing()

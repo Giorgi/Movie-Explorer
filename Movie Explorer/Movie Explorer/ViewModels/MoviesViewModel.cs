@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace Movie_Explorer.ViewModels
 {
-    public class ItemsViewModel : BaseViewModel
+    public class MoviesViewModel : BaseViewModel
     {
         private SearchMovie _selectedItem;
 
@@ -21,7 +21,7 @@ namespace Movie_Explorer.ViewModels
         
         public Command<SearchMovie> ItemTapped { get; }
 
-        public ItemsViewModel()
+        public MoviesViewModel()
         {
             Title = "Movies";
             PopularMovies = new ObservableCollection<SearchMovie>();
