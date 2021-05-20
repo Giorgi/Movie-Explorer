@@ -1,5 +1,4 @@
-﻿using Movie_Explorer.Models;
-using Movie_Explorer.Services;
+﻿using Movie_Explorer.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +9,6 @@ namespace Movie_Explorer.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
         protected IMoviesService MoviesService => DependencyService.Get<IMoviesService>();
 
         bool isBusy = false;

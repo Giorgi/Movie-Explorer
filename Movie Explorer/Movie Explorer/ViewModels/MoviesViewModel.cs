@@ -1,5 +1,4 @@
-﻿using Movie_Explorer.Models;
-using Movie_Explorer.Views;
+﻿using Movie_Explorer.Views;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -107,7 +106,7 @@ namespace Movie_Explorer.ViewModels
                 return;
 
             // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(MovieDetailViewModel.ItemId)}={item.Id}");
+            await Shell.Current.GoToAsync($"{nameof(MovieDetailPage)}?{nameof(MovieDetailViewModel.MovieId)}={item.Id}");
         }
     }
 }

@@ -4,9 +4,9 @@ using Xamarin.Forms;
 
 namespace Movie_Explorer.Views
 {
-    public partial class ItemDetailPage : ContentPage
+    public partial class MovieDetailPage : ContentPage
     {
-        public ItemDetailPage()
+        public MovieDetailPage()
         {
             InitializeComponent();
             BindingContext = new MovieDetailViewModel();

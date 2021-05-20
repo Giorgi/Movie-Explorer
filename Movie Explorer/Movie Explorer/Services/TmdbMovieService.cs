@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using TMDbLib.Client;
+using TMDbLib.Objects.Movies;
 using TMDbLib.Objects.Search;
 using TMDbLib.Objects.Trending;
 
@@ -32,6 +33,11 @@ namespace Movie_Explorer.Services
             }
 
             return new List<SearchMovie>();
+        }
+
+        public Task<Movie> GetMovie(int movieId)
+        {
+            return client.GetMovieAsync(movieId, MovieMethods.Videos | MovieMethods.Credits);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Movie_Explorer
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
+            Routing.RegisterRoute(nameof(MovieDetailPage), typeof(MovieDetailPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

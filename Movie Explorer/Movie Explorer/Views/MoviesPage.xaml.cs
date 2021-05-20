@@ -1,5 +1,4 @@
-﻿using Movie_Explorer.Models;
-using Movie_Explorer.ViewModels;
+﻿using Movie_Explorer.ViewModels;
 using Movie_Explorer.Views;
 using System;
 using System.Collections.Generic;
