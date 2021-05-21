@@ -2,8 +2,10 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:Movie_Explorer.Views"
+       xmlns:viewModels="clr-namespace:Movie_Explorer.ViewModels;assembly=Movie Explorer"
        Title="Movie_Explorer"
-       x:Class="Movie_Explorer.AppShell">
+       x:Class="Movie_Explorer.AppShell"
+       x:DataType="viewModels:ShellViewModel">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -78,8 +80,12 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
+    <TabBar>
+        <ShellContent Route="StartupPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:StartupPage}" />
+    </TabBar>
+
     <FlyoutItem Title="Browse" Icon="icon_feed.png">
-        <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:MoviesPage}" />
+        <ShellContent Route="MoviesPage" ContentTemplate="{DataTemplate local:MoviesPage}" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
@@ -97,18 +103,23 @@
         <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
     </TabBar>
 
-    <!-- Optional Templates 
+     <!--Optional Templates 
     // These may be provided inline as below or as separate classes.
 
     // This header appears at the top of the Flyout.
-    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyout-header
+    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyout-header-->
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid>ContentHere</Grid>
+            <StackLayout>
+                <Label Text="{Binding User.Name}" TextColor="Black" Margin="0,5,0,0"
+                       FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                <Label Text="{Binding User.PreferredUserName}" TextColor="Black" Margin="0,0,0,10"
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+            </StackLayout>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
 
-    // ItemTemplate is for ShellItems as displayed in a Flyout
+    <!--// ItemTemplate is for ShellItems as displayed in a Flyout
     // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#define-flyoutitem-appearance
     <Shell.ItemTemplate>
         <DataTemplate>
@@ -126,8 +137,8 @@
                 Bindable Properties: Text, Icon
             </ContentView>
         </DataTemplate>
-    </Shell.MenuItemTemplate>
+    </Shell.MenuItemTemplate>-->
 
-    -->
+    
 
 </Shell>

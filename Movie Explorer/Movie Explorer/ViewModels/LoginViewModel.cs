@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Okta.Xamarin;
 using Xamarin.Forms;
 
 namespace Movie_Explorer.ViewModels
@@ -17,8 +18,9 @@ namespace Movie_Explorer.ViewModels
 
         private async void OnLoginClicked(object obj)
         {
+            await OktaContext.Current.SignInAsync();
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+            //await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
         }
     }
 }

@@ -72,6 +72,8 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoginCallbackInterceptorActivity.cs" />
+    <Compile Include="LogoutCallbackInterceptorActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,6 +113,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\movie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\OktaConfig.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
