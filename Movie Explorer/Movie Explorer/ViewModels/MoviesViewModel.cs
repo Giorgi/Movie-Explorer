@@ -1,12 +1,12 @@
-﻿using Movie_Explorer.Views;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using MovieExplorer.Views;
 using TMDbLib.Objects.Search;
 using Xamarin.Forms;
 
-namespace Movie_Explorer.ViewModels
+namespace MovieExplorer.ViewModels
 {
     public class MoviesViewModel : BaseViewModel
     {
@@ -15,7 +15,7 @@ namespace Movie_Explorer.ViewModels
         public ObservableCollection<SearchMovie> PopularMovies { get; }
         public ObservableCollection<SearchMovie> DiscoverMovies { get; }
 
-        public Command LoadItemsCommand { get; }
+        public Command LoadMoviesCommand { get; }
         public Command SearchMoviesCommand { get; }
         
         public Command<SearchMovie> ItemTapped { get; }
@@ -26,7 +26,7 @@ namespace Movie_Explorer.ViewModels
             PopularMovies = new ObservableCollection<SearchMovie>();
             DiscoverMovies = new ObservableCollection<SearchMovie>();
             
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            LoadMoviesCommand = new Command(async () => await ExecuteLoadItemsCommand());
             SearchMoviesCommand = new Command<string>(async text => await ExecuteSearchMoviesCommand(text));
 
             ItemTapped = new Command<SearchMovie>(OnItemSelected);

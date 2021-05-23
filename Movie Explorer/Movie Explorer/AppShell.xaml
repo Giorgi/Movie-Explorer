@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:local="clr-namespace:Movie_Explorer.Views"
-       xmlns:viewModels="clr-namespace:Movie_Explorer.ViewModels;assembly=Movie Explorer"
+       xmlns:local="clr-namespace:MovieExplorer.Views;assembly=Movie Explorer"
+       xmlns:viewModels="clr-namespace:MovieExplorer.ViewModels;assembly=Movie Explorer"
        Title="Movie_Explorer"
-       x:Class="Movie_Explorer.AppShell"
+       x:Class="MovieExplorer.AppShell"
        x:DataType="viewModels:ShellViewModel">
 
     <!--

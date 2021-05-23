@@ -2,11 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             x:Class="Movie_Explorer.Views.MoviesPage"
+             xmlns:views="clr-namespace:MovieExplorer.Views;assembly=Movie Explorer"
+             x:Class="MovieExplorer.Views.MoviesPage"
              Title="{Binding Title}"
-             xmlns:local="clr-namespace:Movie_Explorer.ViewModels"  
-             xmlns:views="clr-namespace:Movie_Explorer.Views"
-             x:Name="BrowseItemsPage">
+             xmlns:local="clr-namespace:MovieExplorer.ViewModels">
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
@@ -16,7 +15,7 @@
                  TabIndicatorColor="Yellow" TabContentBackgroundColor="Gray">
 
         <xct:TabViewItem Icon="cinema.png" Text="Popular" TextColor="White" TextColorSelected="Yellow" FontSize="12">
-            <RefreshView x:DataType="local:MoviesViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <RefreshView x:DataType="local:MoviesViewModel" Command="{Binding LoadMoviesCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
                 <CollectionView x:Name="PopularMoviesView" ItemsSource="{Binding PopularMovies}" SelectionMode="None">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
@@ -28,8 +27,7 @@
         </xct:TabViewItem>
         <xct:TabViewItem Icon="movie.png" Text="Discover" TextColor="White" TextColorSelected="Yellow" FontSize="12">
             <StackLayout Orientation="Vertical">
-                <SearchBar x:Name="SearchBar" Placeholder="Discover Movies"
-                           SearchCommand="{Binding SearchMoviesCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}">
+                <SearchBar x:Name="SearchBar" Placeholder="Discover Movies">
                     <SearchBar.Behaviors>
                         <xct:UserStoppedTypingBehavior 
                             Command="{Binding SearchMoviesCommand}" CommandParameter="{Binding Text, Source={x:Reference SearchBar}}"

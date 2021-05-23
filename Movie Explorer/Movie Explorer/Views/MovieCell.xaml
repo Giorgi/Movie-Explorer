@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Grid xmlns="http://xamarin.com/schemas/2014/forms" 
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-      xmlns:local="clr-namespace:Movie_Explorer.ViewModels"
       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
       xmlns:tmdb="clr-namespace:TMDbLib.Objects.Search;assembly=TMDbLib"
-      x:Class="Movie_Explorer.Views.MovieCell" 
+      xmlns:local="clr-namespace:MovieExplorer.ViewModels;assembly=Movie Explorer"
+      x:Class="MovieExplorer.Views.MovieCell" 
       Padding="10" x:DataType="tmdb:SearchMovie" ColumnDefinitions="*, *" RowDefinitions="Auto,Auto, Auto, Auto">
     <Image Grid.RowSpan="3" Aspect="Fill"
                  Source="{Binding Path=BackdropPath, StringFormat='https://image.tmdb.org/t/p/w500{0}'}"/>

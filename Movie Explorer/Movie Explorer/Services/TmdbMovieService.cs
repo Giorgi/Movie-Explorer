@@ -6,7 +6,7 @@ using TMDbLib.Objects.Movies;
 using TMDbLib.Objects.Search;
 using TMDbLib.Objects.Trending;
 
-namespace Movie_Explorer.Services
+namespace MovieExplorer.Services
 {
     class TmdbMovieService : IMoviesService
     {

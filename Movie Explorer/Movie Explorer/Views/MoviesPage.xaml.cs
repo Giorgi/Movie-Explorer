@@ -1,15 +1,7 @@
-﻿using Movie_Explorer.ViewModels;
-using Movie_Explorer.Views;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MovieExplorer.ViewModels;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-namespace Movie_Explorer.Views
+namespace MovieExplorer.Views
 {
     public partial class MoviesPage : ContentPage
     {

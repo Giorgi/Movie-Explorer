@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
-             xmlns:viewModels="clr-namespace:Movie_Explorer.ViewModels;assembly=Movie Explorer"
+             xmlns:viewModels="clr-namespace:MovieExplorer.ViewModels;assembly=Movie Explorer"
              xmlns:tmdb="clr-namespace:TMDbLib.Objects.Movies;assembly=TMDbLib"
-             x:Class="Movie_Explorer.Views.MovieDetailPage" 
+             x:Class="MovieExplorer.Views.MovieDetailPage" 
              x:DataType="viewModels:MovieDetailViewModel"
              Title="{Binding Title}" Padding="5" BackgroundColor="Gray">
     <Grid ColumnDefinitions="*, 2*" RowDefinitions="3*, 2*">

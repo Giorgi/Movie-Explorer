@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 using TMDbLib.Objects.Movies;
 using Xamarin.Forms;
 
-namespace Movie_Explorer.ViewModels
+namespace MovieExplorer.ViewModels
 {
     [QueryProperty(nameof(MovieId), nameof(MovieId))]
     public class MovieDetailViewModel : BaseViewModel
@@ -66,9 +66,8 @@ namespace Movie_Explorer.ViewModels
             {
                 var videoPageContent = await client.GetStringAsync(videoInfoUrl);
                 var videoParameters = HttpUtility.ParseQueryString(videoPageContent);
-                var encodedStreamsDelimited1 = WebUtility.HtmlDecode(videoParameters["player_response"]);
-                var jObject = JObject.Parse(encodedStreamsDelimited1);
-                return (string)jObject["streamingData"]["formats"][0]["url"];
+                var playerInfo = JObject.Parse(WebUtility.HtmlDecode(videoParameters["player_response"]));
+                return playerInfo["streamingData"]["formats"][0]["url"].Value<string>();
             }
         }
     }

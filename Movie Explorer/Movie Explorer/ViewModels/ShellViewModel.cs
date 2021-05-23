@@ -1,6 +1,6 @@
 ﻿using Okta.Xamarin;
 
-namespace Movie_Explorer.ViewModels
+namespace MovieExplorer.ViewModels
 {
     public class ShellViewModel : BaseViewModel
     {

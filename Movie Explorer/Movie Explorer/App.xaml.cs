@@ -1,10 +1,7 @@
-﻿using Movie_Explorer.Services;
-using Movie_Explorer.Views;
-using System;
+﻿using MovieExplorer.Services;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-namespace Movie_Explorer
+namespace MovieExplorer
 {
     public partial class App : Application
     {

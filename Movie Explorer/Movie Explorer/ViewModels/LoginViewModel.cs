@@ -1,11 +1,7 @@
-﻿using Movie_Explorer.Views;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Okta.Xamarin;
+﻿using Okta.Xamarin;
 using Xamarin.Forms;
 
-namespace Movie_Explorer.ViewModels
+namespace MovieExplorer.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {

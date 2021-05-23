@@ -1,8 +1,7 @@
-﻿using Movie_Explorer.ViewModels;
-using System.ComponentModel;
+﻿using MovieExplorer.ViewModels;
 using Xamarin.Forms;
 
-namespace Movie_Explorer.Views
+namespace MovieExplorer.Views
 {
     public partial class MovieDetailPage : ContentPage
     {

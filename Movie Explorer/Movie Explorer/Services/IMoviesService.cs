@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using TMDbLib.Objects.Movies;
 using TMDbLib.Objects.Search;
 
-namespace Movie_Explorer.Services
+namespace MovieExplorer.Services
 {
     public interface IMoviesService
     {

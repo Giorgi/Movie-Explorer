@@ -2,6 +2,7 @@
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using MovieExplorer;
 using Okta.Xamarin;
 using Okta.Xamarin.Android;
 using Xamarin.Forms;

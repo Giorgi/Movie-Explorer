@@ -1,12 +1,10 @@
-﻿using Movie_Explorer.ViewModels;
-using Movie_Explorer.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using MovieExplorer.ViewModels;
+using MovieExplorer.Views;
 using Okta.Xamarin;
 using Xamarin.Forms;
 
-namespace Movie_Explorer
+namespace MovieExplorer
 {
     public partial class AppShell : Xamarin.Forms.Shell
     {
@@ -29,7 +27,6 @@ namespace Movie_Explorer
         private async void OnMenuItemClicked(object sender, EventArgs e)
         {
             await OktaContext.Current.SignOutAsync();
-            //await Shell.Current.GoToAsync("//LoginPage");
         }
     }
 }

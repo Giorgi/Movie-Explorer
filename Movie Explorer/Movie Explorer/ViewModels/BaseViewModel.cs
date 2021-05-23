@@ -1,11 +1,11 @@
-﻿using Movie_Explorer.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using MovieExplorer.Services;
 using Xamarin.Forms;
 
-namespace Movie_Explorer.ViewModels
+namespace MovieExplorer.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
