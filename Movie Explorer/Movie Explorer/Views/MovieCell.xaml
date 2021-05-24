@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
       xmlns:tmdb="clr-namespace:TMDbLib.Objects.Search;assembly=TMDbLib"
-      xmlns:local="clr-namespace:MovieExplorer.ViewModels;assembly=Movie Explorer"
+      xmlns:local="clr-namespace:MovieExplorer.ViewModels;assembly=MovieExplorer"
       x:Class="MovieExplorer.Views.MovieCell" 
       Padding="10" x:DataType="tmdb:SearchMovie" ColumnDefinitions="*, *" RowDefinitions="Auto,Auto, Auto, Auto">
     <Image Grid.RowSpan="3" Aspect="Fill"

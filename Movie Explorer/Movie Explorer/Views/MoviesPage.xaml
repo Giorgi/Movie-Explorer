@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             xmlns:views="clr-namespace:MovieExplorer.Views;assembly=Movie Explorer"
+             xmlns:views="clr-namespace:MovieExplorer.Views;assembly=MovieExplorer"
              x:Class="MovieExplorer.Views.MoviesPage"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:MovieExplorer.ViewModels">

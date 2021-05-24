@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie Explorer.Android", "Movie Explorer\Movie Explorer.Android\Movie Explorer.Android.csproj", "{29DC5201-E26B-4E54-93D6-5CDA98A64BA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieExplorer.Android", "Movie Explorer\Movie Explorer.Android\MovieExplorer.Android.csproj", "{29DC5201-E26B-4E54-93D6-5CDA98A64BA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie Explorer.iOS", "Movie Explorer\Movie Explorer.iOS\Movie Explorer.iOS.csproj", "{59214294-EBB2-4156-AC17-629A5183EAE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieExplorer.iOS", "Movie Explorer\Movie Explorer.iOS\MovieExplorer.iOS.csproj", "{59214294-EBB2-4156-AC17-629A5183EAE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie Explorer", "Movie Explorer\Movie Explorer\Movie Explorer.csproj", "{D9A9AB25-C53B-4282-9351-1C2DF1A3D51C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieExplorer", "Movie Explorer\Movie Explorer\MovieExplorer.csproj", "{D9A9AB25-C53B-4282-9351-1C2DF1A3D51C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -103,9 +103,9 @@
     <AndroidResource Include="Resources\drawable\icon_feed.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Movie Explorer\Movie Explorer.csproj">
-      <Project>{CEC183BF-7E81-4136-9F77-B96B43E541E5}</Project>
-      <Name>Movie Explorer</Name>
+    <ProjectReference Include="..\Movie Explorer\MovieExplorer.csproj">
+      <Project>{D9A9AB25-C53B-4282-9351-1C2DF1A3D51C}</Project>
+      <Name>MovieExplorer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

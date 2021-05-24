@@ -15,8 +15,6 @@ namespace MovieExplorer.ViewModels
         private async void OnLoginClicked(object obj)
         {
             await OktaContext.Current.SignInAsync();
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            //await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
         }
     }
 }
